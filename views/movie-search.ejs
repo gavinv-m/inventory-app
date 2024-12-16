@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../public/js/movie-search.js" type="module" defer></script>
+    <title>Movie Collection</title>
+  </head>
+  <body>
+    <form>
+      <div class="select-container">
+        <select
+          name="select-collection"
+          id="select-collection"
+          aria-label="Select collection"
+        >
+          <option value="" disabled selected>Select collection</option>
+        </select>
+        <span class="custom-arrow"></span>
+      </div>
+      <input
+        type="text"
+        name="movie"
+        placeholder="Enter movie title"
+        id="movie-search"
+        aria-label="Enter movie title"
+      />
+    </form>
+  </body>
+</html>
