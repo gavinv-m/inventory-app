@@ -1,0 +1,13 @@
+.movie-container {
+  display: flex;
+}
+
+.movie-container img {
+  height: 100px;
+  width: 75px;
+}
+
+.title-description {
+  display: flex;
+  flex-direction: column;
+}
