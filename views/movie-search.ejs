@@ -1,3 +1,4 @@
+<!-- Rendered by add-movie.js -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +17,9 @@
           aria-label="Select collection"
         >
           <option value="" disabled selected>Select collection</option>
+          <% collections.forEach((collection) => { %>
+          <option value="<%= collection.name %>"><%= collection.name %></option>
+          <% }) %>
         </select>
         <span class="custom-arrow"></span>
       </div>

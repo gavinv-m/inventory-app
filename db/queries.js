@@ -8,5 +8,10 @@ async function createCollection(collection) {
   );
 }
 
-const db = { createCollection };
+async function getCollections() {
+  const { rows } = await pool.query('SELECT name FROM collections');
+  return rows;
+}
+
+const db = { createCollection, getCollections };
 export default db;
