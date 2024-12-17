@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS movies (
 const collectionsTableQuery = `
 CREATE TABLE IF NOT EXISTS collections (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(140)
     );
 `;
 
