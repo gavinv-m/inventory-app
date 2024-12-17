@@ -15,11 +15,11 @@ const populate = function populateMovieDropDown(movies) {
 
     // Create poster
     const poster = document.createElement('img');
-    poster.setAttribute(
-      'src',
-      `https://image.tmdb.org/t/p/w500/${movie.poster_path}` ||
-        'default-poster.jpg'
-    );
+    const posterPath =
+      movie.poster_path !== null
+        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+        : '/public/images/default-poster.jpg';
+    poster.setAttribute('src', posterPath);
     poster.setAttribute('alt', movie.original_title || 'Movie Poster');
 
     // Create title and description container
@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       if (response.ok === false) throw new Error('Failed to fetch movie data');
       const data = await response.json();
-      console.log(data);
       populate(data.results);
     } catch (error) {
       console.error(error);
