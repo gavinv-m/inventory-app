@@ -18,10 +18,6 @@ const validateCollectionForm = [
     .escape(),
 ];
 
-const renderCreateForm = (req, res) => {
-  res.render('create-collection');
-};
-
 const createCollection = [
   validateCollectionForm,
   async (req, res) => {
@@ -39,7 +35,24 @@ const createCollection = [
   },
 ];
 
-const collectionsController = { renderCreateForm, createCollection };
+const renderCreateForm = (req, res) => {
+  res.render('create-collection');
+};
+
+const renderCollections = async (req, res) => {
+  const collections = await db.getCollections();
+  const posters = await db.getFirstPoster();
+  const collectionNameAndPosters = collections.map((collection, index) => {
+    return { ...collection, poster: posters[index] };
+  });
+  res.render('collections', { collections: collectionNameAndPosters });
+};
+
+const collectionsController = {
+  createCollection,
+  renderCreateForm,
+  renderCollections,
+};
 
 // Exports to collections.js
 export default collectionsController;

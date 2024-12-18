@@ -59,9 +59,32 @@ async function createCollection(collection) {
 }
 
 async function getCollections() {
-  const { rows } = await pool.query('SELECT name FROM collections');
+  const { rows } = await pool.query('SELECT name FROM collections ORDER BY id');
   return rows;
 }
 
-const db = { addMovie, createCollection, getCollections };
+async function getFirstPoster() {
+  const { rows } = await pool.query(`SELECT DISTINCT 
+    ON (collection_id) collection_id, movie_id
+    FROM movies_in_collection
+    ORDER BY collection_id
+    `);
+
+  const posters = await Promise.all(
+    rows.map(async (row) => {
+      const result = await pool.query(
+        `SELECT poster_url
+        FROM movies
+        WHERE id = $1`,
+        [row.movie_id]
+      );
+      let posterURL = result.rows[0];
+      return posterURL === null ? defaultPosterURL : posterURL.poster_url;
+    })
+  );
+
+  return posters;
+}
+
+const db = { addMovie, createCollection, getCollections, getFirstPoster };
 export default db;

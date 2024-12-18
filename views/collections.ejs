@@ -1,0 +1,26 @@
+<!-- Rendered by collections-controller renderCollections -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Collection</title>
+  </head>
+  <body>
+    <div class="collections-container">
+      <% collections.forEach((collection) => { %>
+      <div class="collection">
+        <img
+          src="<%= collection.poster%>"
+          alt="Rows of shelves tightly packed with DVDs, arranged neatly in a library-like room."
+          height="400"
+          width="400"
+        />
+        <div class="collection-name">
+          <h2><%= collection.name %></h2>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>
