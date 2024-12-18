@@ -9,17 +9,19 @@
   <body>
     <div class="collections-container">
       <% collections.forEach((collection) => { %>
-      <div class="collection">
-        <img
-          src="<%= collection.poster%>"
-          alt="Rows of shelves tightly packed with DVDs, arranged neatly in a library-like room."
-          height="400"
-          width="400"
-        />
-        <div class="collection-name">
-          <h2><%= collection.name %></h2>
+      <a href="/collections/<%= encodeURIComponent(collection.name) %>">
+        <div class="collection">
+          <img
+            src="<%= collection.poster%>"
+            alt="Rows of shelves tightly packed with DVDs, arranged neatly in a library-like room."
+            height="400"
+            width="400"
+          />
+          <div class="collection-name">
+            <h2><%= collection.name %></h2>
+          </div>
         </div>
-      </div>
+      </a>
       <% }); %>
     </div>
   </body>

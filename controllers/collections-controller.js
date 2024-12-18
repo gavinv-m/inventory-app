@@ -48,10 +48,18 @@ const renderCollections = async (req, res) => {
   res.render('collections', { collections: collectionNameAndPosters });
 };
 
+const renderCollection = async (req, res) => {
+  const collectionName = decodeURIComponent(req.params.collection);
+  const collectionMovies = await db.getCollectionMovies(collectionName);
+
+  // TODO: Render with collection movies
+};
+
 const collectionsController = {
   createCollection,
   renderCreateForm,
   renderCollections,
+  renderCollection,
 };
 
 // Exports to collections.js

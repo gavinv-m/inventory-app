@@ -63,6 +63,40 @@ async function getCollections() {
   return rows;
 }
 
+const collectionID = async (collectionName) => {
+  const { rows } = await pool.query(
+    `SELECT id 
+    FROM collections
+    WHERE name = $1`,
+    [collectionName]
+  );
+  return rows[0].id;
+};
+
+// Queried by collections-controller renderCollection
+async function getCollectionMovies(collectionName) {
+  const collectionId = await collectionID(collectionName);
+  const { rows } = await pool.query(
+    `
+    SELECT movie_id
+    FROM movies_in_collection
+    WHERE collection_id = $1`,
+    [collectionId]
+  );
+  const movies = await Promise.all(
+    rows.map(async (row) => {
+      const result = await pool.query(
+        `
+      SELECT * FROM movies
+      WHERE id = $1`,
+        [row.movie_id]
+      );
+      return result.rows;
+    })
+  );
+  return movies;
+}
+
 async function getFirstPoster() {
   const { rows } = await pool.query(`SELECT DISTINCT 
     ON (collection_id) collection_id, movie_id
@@ -86,5 +120,11 @@ async function getFirstPoster() {
   return posters;
 }
 
-const db = { addMovie, createCollection, getCollections, getFirstPoster };
+const db = {
+  addMovie,
+  createCollection,
+  getCollections,
+  getCollectionMovies,
+  getFirstPoster,
+};
 export default db;

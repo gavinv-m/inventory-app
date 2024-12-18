@@ -5,6 +5,7 @@ const collectionsRouter = Router();
 
 collectionsRouter.get('/create', collectionsController.renderCreateForm);
 collectionsRouter.post('/create', collectionsController.createCollection);
+collectionsRouter.get('/:collection', collectionsController.renderCollection);
 collectionsRouter.get('/', collectionsController.renderCollections);
 
 // Exports to app.js
