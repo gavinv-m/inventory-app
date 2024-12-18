@@ -9,12 +9,14 @@
     <title>Movie Collection</title>
   </head>
   <body>
-    <form>
+    <form action="/add-movie" method="POST">
       <div class="select-container">
         <select
           name="select-collection"
           id="select-collection"
           aria-label="Select collection"
+          required
+          aria-required="true"
         >
           <option value="" disabled selected>Select collection</option>
           <% collections.forEach((collection) => { %>
@@ -30,7 +32,11 @@
         id="movie-search"
         aria-label="Enter movie title"
       />
+      <!-- Will be used to store the database id -->
+      <!-- Issue where value and textcontent cannot be different -->
+      <input type="hidden" name="database-id" id="database-id" />
       <div id="movie-dropdown-container"></div>
+      <button type="submit" aria-label="Add movie">Add Movie</button>
     </form>
   </body>
 </html>

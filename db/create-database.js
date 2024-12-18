@@ -7,6 +7,7 @@ const { Client } = pkg;
 const moviesTableQuery = `
 CREATE TABLE IF NOT EXISTS movies (
     id SERIAL PRIMARY KEY,
+    database_id INTEGER UNIQUE, 
     title VARCHAR(255) NOT NULL, 
     poster_url TEXT,
     rating DECIMAL(3, 1),

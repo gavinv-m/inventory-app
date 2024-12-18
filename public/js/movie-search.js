@@ -45,6 +45,15 @@ const populate = function populateMovieDropDown(movies) {
 
     // Append movie container to dropdown
     dropdownContainer.appendChild(movieContainer);
+
+    // Add listener on movie container when clicked
+    movieContainer.addEventListener('click', () => {
+      const searchInput = document.getElementById('movie-search');
+      const hiddenInput = document.getElementById('database-id');
+      searchInput.textContent = movie.original_title;
+      hiddenInput.value = movie.id;
+      clear();
+    });
   });
 
   return;
@@ -80,7 +89,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (value !== '') {
       timeoutID = setTimeout(() => {fetchMovieData(value)}, 500)
     } else {
-      clear()
+      clear();
+      const hiddenInput = document.getElementById('database-id');
+      hiddenInput.removeAttribute('value');
     }
   };
 

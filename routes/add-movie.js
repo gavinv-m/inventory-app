@@ -1,13 +1,10 @@
 import { Router } from 'express';
-import db from '../db/queries.js';
+import addMovieController from '../controllers/add-movie-controller.js';
 
 const addMovieRouter = Router();
 
-addMovieRouter.get('/', async (req, res) => {
-  const collections = await db.getCollections();
-  res.render('movie-search', { collections: collections });
-});
+addMovieRouter.get('/', addMovieController.renderAddForm);
+addMovieRouter.post('/', addMovieController.addMovie);
 
-// TODO: Create posting route
-
+// Exports to app.js
 export default addMovieRouter;
