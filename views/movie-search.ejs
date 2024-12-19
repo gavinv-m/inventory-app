@@ -1,44 +1,34 @@
 <!-- Rendered by add-movie.js -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="../public/styles/movie-search.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../public/js/movie-search.js" type="module" defer></script>
-    <title>Movie Collection</title>
-  </head>
-  <body>
-    <header><%- include('./partials/navbar.ejs') %></header>
-    <form action="/add-movie" method="POST">
-      <div class="select-container">
-        <select
-          name="select-collection"
-          id="select-collection"
-          aria-label="Select collection"
-          required
-          aria-required="true"
-        >
-          <option value="" disabled selected>Select collection</option>
-          <% collections.forEach((collection) => { %>
-          <option value="<%= collection.name %>"><%= collection.name %></option>
-          <% }) %>
-        </select>
-        <span class="custom-arrow"></span>
-      </div>
-      <input
-        type="text"
-        name="movie"
-        placeholder="Enter movie title"
-        id="movie-search"
-        aria-label="Enter movie title"
-        required
-      />
-      <!-- Will be used to store the database id -->
-      <!-- Issue where value and textcontent cannot be different -->
-      <input type="hidden" name="database-id" id="database-id" />
-      <div id="movie-dropdown-container"></div>
-      <button type="submit" aria-label="Add movie" disabled>Add Movie</button>
-    </form>
-  </body>
-</html>
+<%- include('./layout.ejs') %>
+<link rel="stylesheet" href="../public/styles/movie-search.css" />
+<script src="../public/js/movie-search.js" type="module" defer></script>
+<form action="/add-movie" method="POST">
+  <div class="select-container">
+    <select
+      name="select-collection"
+      id="select-collection"
+      aria-label="Select collection"
+      required
+      aria-required="true"
+    >
+      <option value="" disabled selected>Select collection</option>
+      <% collections.forEach((collection) => { %>
+      <option value="<%= collection.name %>"><%= collection.name %></option>
+      <% }) %>
+    </select>
+    <span class="custom-arrow"></span>
+  </div>
+  <input
+    type="text"
+    name="movie"
+    placeholder="Enter movie title"
+    id="movie-search"
+    aria-label="Enter movie title"
+    required
+  />
+  <!-- Will be used to store the database id -->
+  <!-- Issue where value and textcontent cannot be different -->
+  <input type="hidden" name="database-id" id="database-id" />
+  <div id="movie-dropdown-container"></div>
+  <button type="submit" aria-label="Add movie" disabled>Add Movie</button>
+</form>

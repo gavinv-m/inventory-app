@@ -1,31 +1,21 @@
 <!-- Rendered by collections-controller.js renderForm -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Collection</title>
-  </head>
-  <body>
-    <header><%- include('./partials/navbar.ejs') %></header>
-    <form action="/collections/create" method="POST">
-      <input
-        type="text"
-        name="collection-name"
-        id="collection"
-        aria-label="Collection Name"
-        placeholder="Enter collection name"
-        required
-        aria-required="true"
-      />
-      <textarea
-        name="collection-description"
-        id="collection-description"
-        aria-label="Collection Description"
-        placeholder="Enter collection description"
-        maxlength="140"
-      ></textarea>
-      <button type="submit" aria-label="Submit Form">Add Collection</button>
-    </form>
-  </body>
-</html>
+<%- include('./layout.ejs') %>
+<form action="/collections/create" method="POST">
+  <input
+    type="text"
+    name="collection-name"
+    id="collection"
+    aria-label="Collection Name"
+    placeholder="Enter collection name"
+    required
+    aria-required="true"
+  />
+  <textarea
+    name="collection-description"
+    id="collection-description"
+    aria-label="Collection Description"
+    placeholder="Enter collection description"
+    maxlength="140"
+  ></textarea>
+  <button type="submit" aria-label="Submit Form">Add Collection</button>
+</form>
