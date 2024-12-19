@@ -5,6 +5,18 @@ const clear = function clearDropdown() {
   }
 };
 
+const enableBtn = () => {
+  const selectCollection = document.getElementById('select-collection');
+  const databaseId = document.getElementById('database-id');
+  const submitButton = document.querySelector('button[type="submit"]');
+
+  if (selectCollection.value && databaseId.value) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+};
+
 const populate = function populateMovieDropDown(movies) {
   const dropdownContainer = document.getElementById('movie-dropdown-container');
   clear();
@@ -52,6 +64,7 @@ const populate = function populateMovieDropDown(movies) {
       const hiddenInput = document.getElementById('database-id');
       searchInput.textContent = movie.original_title;
       hiddenInput.value = movie.id;
+      enableBtn();
       clear();
     });
   });
@@ -61,6 +74,7 @@ const populate = function populateMovieDropDown(movies) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const movieInput = document.getElementById('movie-search');
+  const selectCollection = document.getElementById('select-collection');
 
   async function fetchMovieData(query) {
     try {
@@ -87,13 +101,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Make request after 300ms
     // prettier-ignore
     if (value !== '') {
-      timeoutID = setTimeout(() => {fetchMovieData(value)}, 500)
+      timeoutID = setTimeout(() => {fetchMovieData(value)}, 500); 
     } else {
       clear();
+      enableBtn();
       const hiddenInput = document.getElementById('database-id');
       hiddenInput.removeAttribute('value');
     }
   };
 
+  const handleSelectChange = () => {
+    enableBtn();
+  };
+
   movieInput.addEventListener('input', handleInput);
+  selectCollection.addEventListener('change', handleSelectChange);
 });

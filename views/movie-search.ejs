@@ -31,12 +31,13 @@
         placeholder="Enter movie title"
         id="movie-search"
         aria-label="Enter movie title"
+        required
       />
       <!-- Will be used to store the database id -->
       <!-- Issue where value and textcontent cannot be different -->
       <input type="hidden" name="database-id" id="database-id" />
       <div id="movie-dropdown-container"></div>
-      <button type="submit" aria-label="Add movie">Add Movie</button>
+      <button type="submit" aria-label="Add movie" disabled>Add Movie</button>
     </form>
   </body>
 </html>
