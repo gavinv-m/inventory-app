@@ -16,10 +16,8 @@ app.use('/collections', collectionsRouter);
 app.use('/add-movie', addMovieRouter);
 app.get('/api/fetch-movies', fetchMovies);
 app.get('/', (req, res) => {
-  res.send('We up');
+  res.render('homepage');
 });
-
-// TODO: Add error handler
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
