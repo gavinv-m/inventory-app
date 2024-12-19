@@ -14,7 +14,7 @@ async function addMovie(data) {
 
     let movieID;
     if (movieInDB.rowCount < 1) {
-      result = await pool.query(
+      let result = await pool.query(
         `INSERT INTO movies
       (database_id, title, poster_url, rating, country, year)
       VALUES ($1, $2, $3, $4, $5, $6)
