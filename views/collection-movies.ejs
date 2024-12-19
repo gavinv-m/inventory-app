@@ -1,0 +1,50 @@
+<!-- Rendered by collections-controller renderCollection -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Collection</title>
+  </head>
+  <body>
+    <section class="collection-info">
+      <h1><%= name %></h1>
+      <% if (description) { %>
+      <p><%= description %></p>
+      <% } %>
+    </section>
+    <section class="collection-movies">
+      <div class="movie-total">
+        <span><%= movies.length %> Results</span>
+      </div>
+      <table>
+        <thead>
+          <th>Spine #</th>
+          <th>Title</th>
+          <th>Rating</th>
+          <th>Country</th>
+          <th>Year</th>
+        </thead>
+        <tbody>
+          <% movies.forEach((movie) => { %>
+          <tr>
+            <td><%= movie.database_id %></td>
+            <td class="title-and-poster">
+              <img
+                src="<%= movie.poster_url %>"
+                alt="Movie poster"
+                height="75"
+                width="75"
+              />
+              <span><%= movie.title %></span>
+            </td>
+            <td><%= movie.rating %></td>
+            <td><%= movie.country %></td>
+            <td><%= movie.year %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

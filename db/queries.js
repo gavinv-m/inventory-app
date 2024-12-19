@@ -102,7 +102,7 @@ async function getCollectionMovies(collectionName) {
       WHERE id = $1`,
         [row.movie_id]
       );
-      return result.rows;
+      return result.rows[0];
     })
   );
   return movies;

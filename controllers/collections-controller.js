@@ -54,8 +54,11 @@ const renderCollection = async (req, res) => {
     collectionName
   );
   const collectionMovies = await db.getCollectionMovies(collectionName);
-
-  // TODO: Render with collection movies
+  res.render('collection-movies', {
+    name: collectionName,
+    description: collectionDescription,
+    movies: collectionMovies,
+  });
 };
 
 const collectionsController = {
