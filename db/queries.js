@@ -73,6 +73,17 @@ const collectionID = async (collectionName) => {
   return rows[0].id;
 };
 
+async function getCollectionDescription(collectionName) {
+  const { rows } = await pool.query(
+    `
+    SELECT description
+    FROM collections
+    WHERE name = $1`,
+    [collectionName]
+  );
+  return rows[0].description;
+}
+
 // Queried by collections-controller renderCollection
 async function getCollectionMovies(collectionName) {
   const collectionId = await collectionID(collectionName);
@@ -124,6 +135,7 @@ const db = {
   addMovie,
   createCollection,
   getCollections,
+  getCollectionDescription,
   getCollectionMovies,
   getFirstPoster,
 };

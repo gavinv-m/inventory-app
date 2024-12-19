@@ -50,6 +50,9 @@ const renderCollections = async (req, res) => {
 
 const renderCollection = async (req, res) => {
   const collectionName = decodeURIComponent(req.params.collection);
+  const collectionDescription = await db.getCollectionDescription(
+    collectionName
+  );
   const collectionMovies = await db.getCollectionMovies(collectionName);
 
   // TODO: Render with collection movies
