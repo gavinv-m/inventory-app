@@ -1,0 +1,55 @@
+* {
+  color: white;
+  font-size: 20px;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 10fr 90fr;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.title p {
+  margin: 40px 0px;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+p,
+ul,
+ol {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+ul li,
+ol li {
+  margin-bottom: 10px;
+}
+
+ul li::before {
+  content: '• ';
+}
+
+ul + p {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
