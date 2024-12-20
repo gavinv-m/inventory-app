@@ -11,8 +11,12 @@ body {
 }
 
 .collections-container a {
-  height: 350px;
+  height: 250px;
   margin-bottom: 45px;
+}
+
+.collections-container a:hover h2 {
+  color: #b4841e;
 }
 
 .collection {
@@ -30,4 +34,29 @@ body {
 h2 {
   font-size: 25px;
   text-align: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+section > a {
+  align-self: center;
+}
+
+button {
+  background-color: white;
+  border-width: 0px;
+  color: black;
+  height: 50px;
+  margin: 35px 0px;
+  transition: background-color 1s ease-out 0.25s;
+  width: 175px;
+}
+
+button:hover {
+  background-color: #b4841e;
+  color: white;
+  cursor: pointer;
 }

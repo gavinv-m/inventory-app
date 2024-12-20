@@ -1,18 +1,21 @@
 <!-- Rendered by  -->
 <link rel="stylesheet" href="../public/styles/collections.css" />
 <%- include('./layout.ejs') %>
-<div class="collections-container">
-  <% collections.forEach((collection) => { %>
-  <a href="/collections/<%= encodeURIComponent(collection.name) %>">
-    <div class="collection">
-      <img
-        src="<%= collection.poster  || 'public/images/default-collection.jpg' %>"
-        alt="Rows of shelves tightly packed with DVDs, arranged neatly in a library-like room."
-        height="400"
-        width="400"
-      />
-      <h2 class="collection-name"><%= collection.name %></h2>
-    </div>
-  </a>
-  <% }); %>
-</div>
+<section>
+  <a href="/collections/create"><button>Create New Collection</button></a>
+  <div class="collections-container">
+    <% collections.forEach((collection) => { %>
+    <a href="/collections/<%= encodeURIComponent(collection.name) %>">
+      <div class="collection">
+        <img
+          src="<%= collection.poster  || 'public/images/default-collection.jpg' %>"
+          alt="Rows of shelves tightly packed with DVDs, arranged neatly in a library-like room."
+          height="400"
+          width="400"
+        />
+        <h2 class="collection-name"><%= collection.name %></h2>
+      </div>
+    </a>
+    <% }); %>
+  </div>
+</section>
