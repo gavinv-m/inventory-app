@@ -1,0 +1,34 @@
+body {
+  display: grid;
+  grid-template-rows: 10fr 90fr;
+}
+
+.collections-container {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+  justify-content: center;
+  padding: 25px;
+}
+
+.collections-container a {
+  height: 350px;
+  margin-bottom: 45px;
+}
+
+.collection {
+  height: 100%;
+  width: 100%;
+}
+
+.collection img {
+  border-radius: 20px;
+  height: 100%;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 25px;
+  text-align: center;
+}
