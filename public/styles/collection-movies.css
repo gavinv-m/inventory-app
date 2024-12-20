@@ -1,0 +1,67 @@
+* {
+  color: white;
+}
+
+.collection-info > * {
+  margin-bottom: 15px;
+  max-width: 60%;
+}
+
+h1 {
+  color: #b4841e;
+  font-size: 40px;
+}
+
+.collection-info p {
+  font-size: 18px;
+}
+
+.table-container {
+  align-items: center;
+  display: flex;
+  /* justify-content: center; */
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  width: 85%;
+}
+
+thead tr {
+  height: 50px;
+}
+
+thead th {
+  border-bottom: 1px solid white;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+tbody:first-child {
+  margin-top: 15px;
+}
+
+.title-and-poster {
+  display: flex;
+  gap: 25px;
+}
+
+.title-and-poster span {
+  font-size: 18px;
+  align-self: center;
+}
+
+td {
+  padding-top: 15px;
+}
+
+.head-rating,
+.head-country,
+.movie-rating,
+.movie-country {
+  text-align: center;
+}
