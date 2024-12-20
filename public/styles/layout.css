@@ -13,6 +13,7 @@ body {
 }
 
 header {
+  height: 75px;
   padding-left: 25px;
   width: 100%;
 }
