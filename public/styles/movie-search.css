@@ -1,13 +1,81 @@
-.movie-container {
-  display: flex;
+body {
+  display: grid;
+  grid-template-rows: 10fr 90fr;
 }
 
-.movie-container img {
-  height: 100px;
+section,
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  align-items: center;
+}
+
+form {
+  gap: 30px;
+}
+
+#select-collection,
+#movie-search {
+  background-color: black;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  height: 50px;
+  padding-left: 15px;
+  width: 450px;
+}
+
+button {
+  align-self: center;
+  background-color: white;
+  border-width: 0px;
+  color: black;
+  height: 50px;
+  transition: background-color 1s ease-out 0.25s;
+  width: 175px;
+}
+
+button:hover {
+  background-color: #b4841e;
+  color: white;
+  cursor: pointer;
+}
+
+#movie-dropdown-container,
+.movie-container,
+.title-description {
+  display: flex;
+  gap: 10px;
+}
+
+#movie-dropdown-container,
+.title-description {
+  flex-direction: column;
+}
+
+.movie-container {
+  cursor: pointer;
+  max-height: 95px;
+  max-width: 450px;
+}
+
+.movie-container > img {
+  max-height: 100%;
   width: 75px;
 }
 
-.title-description {
-  display: flex;
-  flex-direction: column;
+.movie-container p {
+  overflow: clip;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to display */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.title-description > * {
+  color: white;
 }

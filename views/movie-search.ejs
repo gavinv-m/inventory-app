@@ -2,8 +2,8 @@
 <%- include('./layout.ejs') %>
 <link rel="stylesheet" href="../public/styles/movie-search.css" />
 <script src="../public/js/movie-search.js" type="module" defer></script>
-<form action="/add-movie" method="POST">
-  <div class="select-container">
+<section class="form-content">
+  <form action="/add-movie" method="POST">
     <select
       name="select-collection"
       id="select-collection"
@@ -16,19 +16,18 @@
       <option value="<%= collection.name %>"><%= collection.name %></option>
       <% }) %>
     </select>
-    <span class="custom-arrow"></span>
-  </div>
-  <input
-    type="text"
-    name="movie"
-    placeholder="Enter movie title"
-    id="movie-search"
-    aria-label="Enter movie title"
-    required
-  />
-  <!-- Will be used to store the database id -->
-  <!-- Issue where value and textcontent cannot be different -->
-  <input type="hidden" name="database-id" id="database-id" />
-  <div id="movie-dropdown-container"></div>
-  <button type="submit" aria-label="Add movie" disabled>Add Movie</button>
-</form>
+    <input
+      type="text"
+      name="movie"
+      placeholder="Enter movie title"
+      id="movie-search"
+      aria-label="Enter movie title"
+      required
+    />
+    <!-- Will be used to store the database id -->
+    <!-- Issue where value and textcontent cannot be different -->
+    <input type="hidden" name="database-id" id="database-id" />
+    <div id="movie-dropdown-container"></div>
+    <button type="submit" aria-label="Add movie" disabled>Add Movie</button>
+  </form>
+</section>
