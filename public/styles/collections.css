@@ -7,8 +7,7 @@ body {
   display: grid;
   gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
-  justify-content: center;
-  padding: 25px;
+  justify-content: start;
 }
 
 .collections-container a {

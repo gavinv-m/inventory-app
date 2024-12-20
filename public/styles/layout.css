@@ -9,11 +9,11 @@ body {
   height: 100vh;
   margin: 0 auto;
   max-width: 1500px;
+  padding-left: 25px;
   width: 100%;
 }
 
 header {
   height: 75px;
-  padding-left: 25px;
   width: 100%;
 }
