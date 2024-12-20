@@ -123,8 +123,7 @@ async function getFirstPoster() {
         WHERE id = $1`,
         [row.movie_id]
       );
-      let posterURL = result.rows[0];
-      return posterURL === null ? defaultPosterURL : posterURL.poster_url;
+      return result.rows[0].poster_url;
     })
   );
 
