@@ -1,0 +1,55 @@
+body {
+  display: grid;
+  grid-template-rows: 10fr 90fr;
+}
+
+section,
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  align-items: center;
+}
+
+form {
+  gap: 30px;
+}
+
+form input,
+textarea {
+  background-color: black;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  height: 200px;
+  padding-left: 15px;
+  width: 400px;
+}
+
+textarea {
+  padding-top: 15px;
+}
+
+/* Higher specificity */
+form input {
+  height: 50px;
+}
+
+button {
+  align-self: center;
+  background-color: white;
+  border-width: 0px;
+  color: black;
+  height: 50px;
+  transition: background-color 1s ease-out 0.25s;
+  width: 175px;
+}
+
+button:hover {
+  background-color: #b4841e;
+  color: white;
+  cursor: pointer;
+}

@@ -1,21 +1,24 @@
 <!-- Rendered by collections-controller.js renderForm -->
+<link rel="stylesheet" href="../public/styles/create-collection.css" />
 <%- include('./layout.ejs') %>
-<form action="/collections/create" method="POST">
-  <input
-    type="text"
-    name="collection-name"
-    id="collection"
-    aria-label="Collection Name"
-    placeholder="Enter collection name"
-    required
-    aria-required="true"
-  />
-  <textarea
-    name="collection-description"
-    id="collection-description"
-    aria-label="Collection Description"
-    placeholder="Enter collection description"
-    maxlength="140"
-  ></textarea>
-  <button type="submit" aria-label="Submit Form">Add Collection</button>
-</form>
+<section>
+  <form action="/collections/create" method="POST">
+    <input
+      type="text"
+      name="collection-name"
+      id="collection"
+      aria-label="Collection Name"
+      placeholder="Enter collection name"
+      required
+      aria-required="true"
+    />
+    <textarea
+      name="collection-description"
+      id="collection-description"
+      aria-label="Collection Description"
+      placeholder="Enter collection description"
+      maxlength="140"
+    ></textarea>
+    <button type="submit" aria-label="Submit Form">Add Collection</button>
+  </form>
+</section>
