@@ -1,8 +1,19 @@
 a {
   color: white;
+  font-size: 25px;
   text-decoration: none;
 }
 
-a:hover {
+nav a:hover {
+  color: #b4841e;
   cursor: pointer;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  height: 100%;
+  width: 100%;
 }
